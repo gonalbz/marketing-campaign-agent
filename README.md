@@ -1,5 +1,4 @@
 #  Marketing Campaign Agent
-
 A proof-of-concept LangChain/LangGraph project that simulates an autonomous AI agent capable of planning, forecasting, and reporting on a marketing campaign, based on mock product and sales data. 
 ---
 
@@ -44,7 +43,7 @@ To create a modular, always-on, agentic AI system that:
 
 ---
 
-## 📁 Repo Structure
+## Repo Structure
 ```
 marketing-campaign-agent/
 ├── data/                  # Contains mock CSVs for product sales
