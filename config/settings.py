@@ -10,6 +10,7 @@ load_dotenv()
 
 # API Keys
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Application Settings
 MAX_QUESTIONS = 5
