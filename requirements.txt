@@ -12,3 +12,5 @@
     python-docx>=1.2.0
     docx2pdf>=0.1.8
     pydantic>=2.11.0
+    fastapi[standard]>=0.115.14
+    uvicorn>=0.35.0
