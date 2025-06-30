@@ -2,6 +2,12 @@
 A proof-of-concept LangChain/LangGraph project that simulates an autonomous AI agent capable of planning, forecasting, and reporting on a marketing campaign, based on mock product and sales data. 
 ---
 
+## How to run via Docker
+```
+docker build -t marketing-campaign-agent
+docker run -p 8000:8000 --env-file .env marketing-campaign-agent
+```
+
 ##  Goal
 To create a modular, always-on, agentic AI system that:
 1. Receives a campaign goal 
