@@ -1,17 +1,13 @@
 # Use official Python base image
 FROM python:3.13-slim
 
-# Copy requirements first to leverage Docker cache
-COPY requirements.txt .
+WORKDIR /code
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+COPY ./requirements.txt /code/requirements.txt
 
-# Set working directory inside the container
-WORKDIR /src
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-# Copy the rest of the application code
-COPY . .
+COPY . /code
 
 # Expose the port FastAPI will run on
 EXPOSE 8000
