@@ -4,7 +4,7 @@ A proof-of-concept LangChain/LangGraph project that simulates an autonomous AI a
 
 ## How to run via Docker
 ```
-docker build -t marketing-campaign-agent
+docker build -t marketing-campaign-agent .
 docker run -p 8000:8000 --env-file .env marketing-campaign-agent
 ```
 
