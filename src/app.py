@@ -19,7 +19,5 @@ async def user_prompt(user_prompt: UserPromptInput):
             "initial_request": user_prompt.prompt
         }
     )
-    # TODO: change what gets returned here once we have the full graph in place
-    result = '\n\n'.join(final_state['search_results'])
-    print(final_state)
+    result = final_state['final_report']
     return UserPromptOutput(prompt_response=result)
