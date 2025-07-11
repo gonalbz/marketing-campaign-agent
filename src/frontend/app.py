@@ -31,4 +31,4 @@ with col2:
             st.markdown(result.get("prompt_response", "No response found."))
 
         except requests.exceptions.RequestException as e:
-            st.error(f"Error: {e}")
+            st.error(f"Error: {e}") 

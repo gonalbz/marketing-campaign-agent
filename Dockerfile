@@ -1,16 +1,28 @@
-# Use official Python base image
 FROM python:3.13-slim
 
-WORKDIR /code
+WORKDIR /app
 
-COPY ./requirements.txt /code/requirements.txt
+# Instala uv
+RUN pip install --upgrade pip && pip install uv
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+# Copia solo pyproject.toml (y opcionalmente uv.lock si lo tienes)
+COPY pyproject.toml ./
+# COPY uv.lock ./
 
-COPY . /code
+# Copia el código fuente
+COPY src/ ./src/
+COPY config/ ./config/
+COPY data/ ./data/
 
-# Expose the port FastAPI will run on
-EXPOSE 8000
+# Instala las dependencias del proyecto usando uv sync
+RUN uv sync
 
-# Run the FastAPI app with Uvicorn
-CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Expone los puertos necesarios
+EXPOSE 8000 8501
+
+# Copia el script de arranque
+COPY scripts/run.sh /app/run.sh
+RUN chmod +x /app/run.sh
+
+# Comando por defecto: ejecuta el script que lanza ambos servicios
+CMD ["/app/run.sh"]
